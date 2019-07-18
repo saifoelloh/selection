@@ -76,5 +76,22 @@ console.log(`Third result\t: ${hasil}`);
 
 
 /*
- *  4. Special Pythagorean triplet
+ *  4. 10001st prime
  */
+
+function fourth(limit) {
+    let num = 1, list = 0, val;
+    do {
+        val = tr_primary(num);
+        list += val!==false ? 1 : 0;
+        if (list===10000) {
+            console.log(`${list} -- ${val}`);
+        }
+        num++;
+    } while (list!==limit);
+
+    return val;
+}
+
+hasil = fourth(10001);
+console.log(`Fourth result\t: ${hasil}`);
