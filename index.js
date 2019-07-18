@@ -1,10 +1,10 @@
 /*
  * 1. Multiples of 3 and 5
  */
-function first(limit=1000) {
+function first(limit) {
     let hasil = 0;
     for (let i=1;i<limit;i++) {
-        if (i%3==0&&i%5==0) {
+        if (i%3==0||i%5==0) {
             hasil += i;
         }
     }
@@ -12,7 +12,7 @@ function first(limit=1000) {
     return hasil;
 }
 
-let hasil = first();
+let hasil = first(1000);
 console.log(`First result\t: ${hasil}`);
 
 
@@ -52,19 +52,18 @@ console.log(`Second result\t: ${hasil}`);
  *  3. Summation of primes
  */
 function tr_primary(value) {
-    for (let i=2;i<10;i++) {
-        if (value%i==0&&value!==2) {
-            return false;
+    const limit = value < 10 ? value : 7;
+    for (let i=2;i<limit;i++) {
+        if (value%i===0) {
+            return value===2 ? value : false;
         }
-
     }
 
-    return value===1 ? false : value;
+    return value!==1 ? value : false;
 }
 
 function third(limit) {
     let hasil = 0;
-    let val = 0;
     for (let i=1;i<limit;i++) {
         hasil += tr_primary(i); 
     }
@@ -72,5 +71,10 @@ function third(limit) {
     return hasil;
 }
 
-hasil = third(2000000);
+hasil = third(2*Math.pow(1000, 2));
 console.log(`Third result\t: ${hasil}`);
+
+
+/*
+ *  4. Special Pythagorean triplet
+ */
