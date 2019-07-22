@@ -84,9 +84,6 @@ function fourth(limit) {
     do {
         val = tr_primary(num);
         list += val!==false ? 1 : 0;
-        if (list===10000) {
-            console.log(`${list} -- ${val}`);
-        }
         num++;
     } while (list!==limit);
 
@@ -95,3 +92,26 @@ function fourth(limit) {
 
 hasil = fourth(10001);
 console.log(`Fourth result\t: ${hasil}`);
+
+/*
+ *  5. Special Pythagorean triplet
+ */
+function fifth(limit) {
+    let a = 1;
+    do {
+        let b = a;
+        do {
+            let c = Math.sqrt(a**2 + b**2),
+                temp = a + b + c;
+            if (temp==limit) {
+                return a*b*c;
+            }
+            b++;
+        } while(b<limit);
+        a++;
+    } while(a<limit);
+
+    return false;
+}
+const num = fifth(1000);
+console.log(`Fifth result\t: ${num}`);
